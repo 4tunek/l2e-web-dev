@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mortgage Calculator</title>
+
+   <style>
+       @font-face {
+         font-family: [Plus Jakarta Sans];
+         src: url(https://fonts.google.com/specimen/Plus+Jakarta+Sans);
+       }
+
+       @font-face {
+         font-family: [Plus Jakarta Sans];
+         src: url(https://fonts.google.com/specimen/Plus+Jakarta+Sans);
+         font-weight: 500, 700;
+           }
+
+       .clear-all-button {
+                  background-color: hsl(0, 0%, 100%); 
+                  border: none;
+                  font-weight: bold;
+                  height: 20px;
+                  width: 80px;
+                  text-decoration: underline;
+                  margin-left: 50px;
+               }
+
+               .repayment-button {
+                     background-color: rgb(206, 206, 10);
+                     border: none;
+                     font-size: 15px;
+                     margin: 30px;
+                     padding-left: 30px;
+                     padding-bottom: 15px;
+                     padding-right: 60px;
+                     border-radius: 25px;
+                     font-weight: bold;
+                     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+                  }
+
+                  .repayment-amount {
+                     font-size: 40px;
+                     padding-left: 14px;
+                     margin-top: 18px;
+                     margin-bottom: 20px;
+                     line-height: 3px;
+                     color: hsl(61, 70%, 52%)
+                     
+                  }
+
+                  .card-2:nth-child(2) { 
+                     margin-left: -25px;
+                     height: 384px;
+                     width: 310px;
+                     border-top-right-radius: 15px;
+                     border-bottom-right-radius: 15px;
+                     border-bottom-left-radius: 38px;
+                     background-color: hsl(202, 55%, 16%)
+                     
+                     }
+
+                    .card-1 {
+                     height: 384px;
+                     width: 400px; 
+                     border-radius: 10px;
+                     background-color: hsl(0, 0%, 100%)
+                      }
+
+                    .repayment-text, .your-monthly, .total, .amount-2 {
+                     color: hsl(0, 0%, 100%);
+                     font-family: [Plus Jakarta Sans];
+                     
+                      }
+
+                     .repayment-text {
+                        padding-left: 28px;
+                        margin-bottom: 10px;
+                        font-size: 12px;
+                        
+                     }
+                  .your-monthly {
+                     padding-left: 20px;
+                     padding-top: 10px;
+                     padding-bottom: 7px;
+                     font-size: 12px;
+                      
+                  }
+                    .total, .amount-2 {
+                     padding-left: 25px;
+                     font-size: 11px;
+                     margin-bottom: 10px;
+
+                    }
+
+                    .amount-2 {
+                     font-size: 20px;
+                     margin-top: 3px;
+                     padding-top: 10px;
+                     padding-left: 20px;
+                     line-height: 2px;
+                     
+                     }
+
+                    .result {
+                     color: white;
+                     font-family: arial;
+                     padding-top: 2px;
+                     padding-left: 27px;
+                     
+                    }
+
+                    
+                    .app-container {
+                     background-color: hsl(202, 86%, 94%);
+                     display: flex;
+                     flex-wrap: wrap;
+                     flex-direction: row;
+                     justify-content: center;
+                     align-items: center;
+                     min-height: 97vh;
+                     
+                       }
+                    
+                     .card2-section {
+                        margin-left: 30px;
+                        margin-right: 30px;
+                        margin-top: 20px;
+                        width: 250px;
+                        height: 185px;
+                        border-top: solid;
+                        border-top-left-radius: 7px;
+                        border-top-right-radius: 7px;
+                        border-top-color: hsl(61, 70%, 52%);
+                        background-color: hsl(200, 52%, 12%)
+                         }
+
+
+                     .calculator-icon {
+                     padding-right: 10px;
+                     padding-top: 10px;
+                     
+                       }
+
+                     .interest-rate {
+                     font-weight: bold;
+                     font-size: 15px;
+                     border-radius: 5px;
+                     width: 145px;
+                     height: 25px;
+                     margin-top: 5px;
+                     margin-right: 3px;
+                     margin-left: 4px;
+                     }
+
+                     .mortgage-term {
+                     font-weight: bold;
+                     font-size: 15px;
+                     border-radius: 5px;
+                     width: 140px;
+                     height: 25px;
+                     margin-top: 5px;
+                     margin-right: 3px;
+                     margin-left: 9px;
+                     
+                     }
+
+                  .mortgage-amount-1 {
+                     font-weight: bold;
+                     font-size: 15px;
+                     width: 279px;
+                     border-radius: 3px;
+                     height: 26px;
+                     margin-top: 5px;
+                     margin-left: 27px;
+                     
+                      }
+
+
+               .interest-rate2, .mortgage2, .mortgage-calculator, 
+               .clear-all {
+                     display: inline-block  }  
+                     
+                     .mortgage-calculator{
+                        padding-left: 30px;
+                     }
+
+                  .money-logo {
+                     background-color: hsl(203, 41%, 72%);
+                     padding-left: 9px;
+                     padding-right: 9px;
+                     padding-top: 4px;
+                     padding-bottom: 3px;
+                     
+                       }
+
+                  .interest-sign {
+                     background-color: hsl(203, 41%, 72%);
+                     width: 2px;
+
+                           }
+
+                  .years {
+                     background-color: hsl(203, 41%, 72%);
+                     padding-left: 18px;
+                     padding-right: 15px;
+                     padding-top: 2px;
+                     padding-bottom: 6px;
+                     color: hsl(220, 55%, 16%);
+                     
+                      }
+
+                       .wrapper-1 {
+                        position: relative;
+                       }
+
+                       .wrapper-1 .mortgage-amount-1 {
+                        padding-left: 45px;
+                       }
+
+                       .wrapper-1 span {
+                        position: absolute;
+                        margin-left: 29px;
+                        margin-top: 7px;
+                        border-top-right-radius: 3px;
+                        border-top-left-radius: 3px;
+                        background-color: hsl(202, 86%, 94%);
+                        color: hsl(220, 25%, 16%);
+                        
+                        }
+                         
+                        .wrapper-2 {
+                        position: relative;
+                       }
+
+                       .wrapper-2 .mortgage-term {
+                        padding-left: 10px;
+                        
+                         }
+                         
+                        .wrapper-2 span {
+                        position: absolute;
+                        margin-left: 110px;
+                        margin-top: 7px;
+                        margin-bottom: 5%;
+                        padding-bottom: 7px;
+                        width: 20px;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        background-color: hsl(202, 86%, 94%);
+                        color: hsl(220, 25%, 16%);
+                        
+                        }
+
+                        .wrapper-3 {
+                        position: relative;
+                        
+                       }
+
+                       .wrapper-3 .interest-rate {
+                        padding-left: 10px;
+                         }
+
+                        .wrapper-3 span {
+                        position: absolute;
+                        margin-left: 129px;
+                        margin-top: 7px;
+                        padding-left: 10px;
+                        padding-right: 22px;
+                        padding-top: 2px;
+                        padding-bottom: 7px;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        background-color: hsl(202, 86%, 94%);
+                        color: hsl(220, 25%, 16%);
+                        
+                         }
+
+                        hr {
+                        display: block;
+                        margin-top: 35px;
+                        margin-bottom: 0.5rem;
+                        margin-left: auto;
+                        margin-right: auto;
+                        border-color: hsl(220, 25%, 16%);
+                        width: 208px;
+                        
+                          }
+
+                          .field-repay, .field-interest {
+                           border-radius: 3px;
+                           width: 76%;
+                           margin-top: 3px;
+                           margin-left: 28px;
+                           height: 15px;
+                           font-weight: bold;
+                           font-size: 15px;
+                           color: hsl(220, 25%, 16%);
+                           }
+
+   </style>
+</head>
+<body>
+   <div class="app-container">
+   <div class="card">
+         
+      <section class="card-1">
+         <header>
+            <h3 class="mortgage-calculator">Mortgage Calculator</h3>
+            <button class="clear-all-button" type="clear all" value="clear all">clear all</button>
+          </header>
+
+         <form>
+            <div>
+               <label for="mortgage-amount" style="margin: 29px;">Mortgage Amount</label>
+               
+               <div class="wrapper-1">
+                  <span class="money-logo">&#65505;</span>
+                  <input class="mortgage-amount-1"  type="text" placeholder="3000,000"> 
+               </div>
+            </div>
+                <div>
+            <div class="mortgage2">
+               <divi class="mortgage2" style="margin-top: 10px; margin-left: 20px;">
+                 <label  for="Mortgage Term" style="margin: 11px;">Mortgage Term</label> 
+               
+                 <div class="wrapper-2">
+                  <span class="years">years</span> 
+                  <input class="mortgage-term"  type="text" placeholder="25">
+                 </div>
+            </div>
+               </divi>
+
+               <div class="interest-rate2">
+               <div class="interest-rate2">
+                  <label for="Interest Rate" style="margin: 8px;">Interest Rate</label>
+                  <div class="wrapper-3">
+                   <span class="interest-sign">&#37</span>
+                     <input class="interest-rate" type="text" placeholder="5.25">
+                  </div>
+               </div>
+                </div>
+
+               <div class="mortgage" style="margin-top: 15px; margin-left: 20px;">
+                  <label style="margin: 11px;" for="mortgage type">Mortgage Type</label>
+            </div>
+                <div>
+                     <fieldset class="field-repay">
+                     <input  type="radio"  name="mortgage-type"  id="repayment">
+                     <label for="repayment">Repayment</label>
+                     </fieldset>
+                     <fieldset class="field-interest">
+                     <input type="radio" name="mortgage-type" id="interest-only">
+                     <label for="interest only">Interest Only</label>
+                     </fieldset>
+                  </div>
+         
+               <button class="repayment-button"
+               style="margin-top: 20px;"> 
+                  <img class="calculator-icon"  src="image/calculator icon.png" 
+                  alt="calculator icon" width="17px" height="20px" 
+                   type="submit">Calculate Repayments
+                  </button>
+
+            </section>
+         </form>
+         </div>
+   
+             <section class="card-2">
+         <article>
+            <h4 class="result">Your results</h4>
+            <p class="repayment-text">
+               Your results are shown here based on the information <br>
+               you provided. To adjust the result,edit the form and <br>click
+               "calculate repayment" again.
+            </p>
+         </article>
+           
+         <article class="card2-section">
+            <div>
+               <h4 class="your-monthly">Your monthly repayments</h4>
+               <h1 class="repayment-amount">&#65505;1,797.74</h1>
+            </div>
+                  <hr>
+            <div>
+               <h4 class="total">Total you'll repay over the term</h4>
+               <h3 class="amount-2">&#65505;539,322.94</h3>
+            </div>
+         </article>
+             </section>
+   </div>
+   </div>
+</body>
+</html>
